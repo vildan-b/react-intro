@@ -3,10 +3,11 @@ import { ListGroup,ListGroupItem } from "reactstrap";
 
 
 export default class CategoryList extends Component {
+
   render() {
     return (
       <div>
-        <h5>Category LIst</h5>
+        <h5>{this.props.info.title}</h5>
         <ListGroup>
   <ListGroupItem color="success">
     Cras justo odio
