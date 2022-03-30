@@ -1,15 +1,15 @@
+/* eslint-disable no-undef */
 import React, { Component} from 'react'
 import { ListGroup,ListGroupItem } from "reactstrap";
 
 
 export default class CategoryList extends Component {
-constructor(props){
-  super(props);
-  this.state= {categories:[{categoryId:1,categoryName:"Computer"},
-                           {categoryId:2,categoryName:"Elektronik"}
-]};
 
-}
+  state= {categories:[{categoryId:1,categoryName:"Computer"},
+                           {categoryId:2,categoryName:"Elektronik"}]
+      };
+
+    
 
   render() {
     return (
@@ -19,13 +19,14 @@ constructor(props){
         <ListGroup>
           {
             this.state.categories.map(category =>(
-              <ListGroupItem color="danger" key={category.categoryId}>
+              <ListGroupItem onClick={()=>this.props.changeCategory(category)} color="danger"  key={category.categoryId}>
                 {category.categoryName}</ListGroupItem>
 
             ))
           }
   
 </ListGroup>
+<h4>{this.props.currenCategory}</h4>
       </div>
     )
   }

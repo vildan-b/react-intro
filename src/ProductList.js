@@ -8,6 +8,7 @@ export default class ProductList extends Component {
     return (
       <div>
         <h5>{this.props.info.title}</h5>
+        <h5> {this.props.currenCategory}</h5>
         <Button color="danger">Danger!</Button>
 
       </div>
