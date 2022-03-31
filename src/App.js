@@ -39,9 +39,8 @@ export default class App extends Component {
         return (
     <div>
       <Container>
-        <Row>
           <Navi></Navi>
-        </Row>
+       
         <Row>
           <Col xs="3">
             <CategoryList currenCategory={this.state.currenCategory} changeCategory={this.changeCategory} info={categoryInfo}/>
