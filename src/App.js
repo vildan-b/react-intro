@@ -1,3 +1,4 @@
+
 import React, { Component} from 'react'
 
 import { Col, Container, Row} from "reactstrap";
@@ -7,10 +8,23 @@ import ProductList from "./ProductList";
 
 
 export default class App extends Component {
-  state={currenCategory:""}
+  state={currenCategory:"",
+  products:[]};
+
+  componentDidMount(){
+    this.getProducts();
+  }
+  
   changeCategory=(category)=>{
     this.setState({currenCategory:category.categoryName});
+  };
+
+  getProducts = ()=>{
+    fetch("http://localhost:3000/products")
+    .then(response=>response.json())
+    .then(data=>this.setState({products:data}));
   }
+
 
   render() {
     let productInfo= {title:"Product List"};
@@ -27,7 +41,9 @@ export default class App extends Component {
           </Col>
           <Col xs="9">
 
-          <ProductList currenCategory={this.state.currenCategory} changeCategory={this.changeCategory} info={productInfo} />
+          <ProductList 
+          products={this.state.products}
+          currenCategory={this.state.currenCategory} changeCategory={this.changeCategory} info={productInfo} />
           </Col>
         </Row>
       </Container>
