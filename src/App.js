@@ -9,7 +9,21 @@ import ProductList from "./ProductList";
 
 export default class App extends Component {
   state={currenCategory:"",
-  products:[]};
+  products:[],
+cart:[]};
+
+  addToCart=(product)=>{
+let newCart=this.state.cart;
+var addedItem = newCart.find(c=>c.product.id === product.id);
+if(addedItem){
+  addedItem.quantity+=1;
+}else {
+  newCart.push({product:product,quantity:1});
+
+}
+this.setState({cart:newCart});
+
+  }
 
   componentDidMount(){
     this.getProducts();
@@ -39,7 +53,7 @@ export default class App extends Component {
         return (
     <div>
       <Container>
-          <Navi></Navi>
+          <Navi cart={this.state.cart}></Navi>
        
         <Row>
           <Col xs="3">
@@ -49,6 +63,7 @@ export default class App extends Component {
 
           <ProductList 
           products={this.state.products}
+          addToCart={this.addToCart}
           currenCategory={this.state.currenCategory} changeCategory={this.changeCategory} info={productInfo} />
           </Col>
         </Row>
