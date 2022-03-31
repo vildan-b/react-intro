@@ -25,6 +25,11 @@ this.setState({cart:newCart});
 
   }
 
+  removeFromCart=(product)=>{
+    let newCart = this.state.cart.filter(c=>c.product.id!==product.id)
+    this.setState({cart:newCart})
+  }
+
   componentDidMount(){
     this.getProducts();
   }
@@ -53,7 +58,9 @@ this.setState({cart:newCart});
         return (
     <div>
       <Container>
-          <Navi cart={this.state.cart}></Navi>
+          <Navi 
+          removeFromCart={this.removeFromCart}
+          cart={this.state.cart}></Navi>
        
         <Row>
           <Col xs="3">
