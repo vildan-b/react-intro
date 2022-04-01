@@ -9,6 +9,7 @@ import {
   NavLink,NavbarText
 } from "reactstrap";
 import CartSummary from "./CartSummary";
+import {Link } from "react-router-dom"
 
 export default class Navi extends Component {
   render() {
@@ -20,10 +21,10 @@ export default class Navi extends Component {
           <Collapse navbar>
             <Nav className="me-auto" navbar>
               <NavItem>
-                <NavLink href="/components/">Components</NavLink>
+                <Link to="/form">Form Demo</Link>
               </NavItem>
               <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">
+                <NavLink to="/tt">
                   GitHub
                 </NavLink>
               </NavItem>
