@@ -24,10 +24,10 @@ export default class Navi extends Component {
                 <Link to="/form">Form Demo</Link>
               </NavItem>
               <NavItem>
-                <NavLink to="/tt">
-                  GitHub
-                </NavLink>
-              </NavItem>
+          <NavLink href="https://github.com/reactstrap/reactstrap">
+            GitHub
+          </NavLink>
+        </NavItem>
          <CartSummary 
          removeFromCart={this.props.removeFromCart}
          cart={this.props.cart}></CartSummary>
